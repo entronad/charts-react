@@ -12,3 +12,22 @@ library的形态：
 
 eslint采用typescript-eslint, 相关依赖和eslintrc参考antd 4.0.0-alpha.7，只利用vscode的插件，不集成到编译流程中
 
+添加依赖：
+
+```
+"@typescript-eslint/eslint-plugin": "^2.0.0",
+"@typescript-eslint/parser": "^2.0.0",
+"eslint": "^6.1.0",
+"eslint-config-airbnb": "^18.0.0",
+"eslint-config-prettier": "^6.0.0",
+"eslint-plugin-babel": "^5.3.0",
+"eslint-plugin-import": "^2.17.3",
+"eslint-plugin-jest": "^22.6.4",
+"eslint-plugin-jsx-a11y": "^6.2.1",
+"eslint-plugin-markdown": "^1.0.0",
+"eslint-plugin-react": "^7.14.2",
+"eslint-tinker": "^0.5.0",
+```
+
+
+
