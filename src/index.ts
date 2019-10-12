@@ -3,8 +3,9 @@ export interface Props {
   y: number;
 }
 
-export class Value {
+export default class Value {
   private value = 10
+  
   private props: Props = { x: 0, y: 0 };
 
   getValue(): number {
