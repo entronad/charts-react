@@ -31,3 +31,24 @@ eslint采用typescript-eslint, 相关依赖和eslintrc参考antd 4.0.0-alpha.7�
 
 
 
+2019-10-14 google/charts 基线0.8.1
+
+
+
+顺序：
+
+charts_common -> common 的顺序
+
+common文件夹中以symbol_rederer为主线
+
+
+
+命名参数用cfg对象的方式
+
+dart中自有，但js中需补充的，放在src/polyfills中
+
+tsconfig根据antd 4.0.0-alpha.7修改
+
+添加dart的license因为使用了math等内置库
+
+为模拟dart的效果，所有文件需输出内容自己export，然后再export default一个包含这些内容的对象
