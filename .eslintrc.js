@@ -78,6 +78,10 @@ const eslintrc = {
     'no-restricted-globals': 0,
     'max-classes-per-file': 0,
     'react/static-property-placement': 0,
+
+    // add
+    'no-use-before-define': 0,
+    'no-param-reassign': 0,
   },
   globals: {
     gtag: true,

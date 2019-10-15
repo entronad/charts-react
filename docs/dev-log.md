@@ -52,3 +52,9 @@ tsconfig根据antd 4.0.0-alpha.7修改
 添加dart的license因为使用了math等内置库
 
 为模拟dart的效果，所有文件需输出内容自己export，然后再export default一个包含这些内容的对象
+
+为模拟编译型的dart语言，变量定义顺序无所谓，去除no-use-before-define
+
+js中没有assert
+
+no-param-reassign是很好的，但很多基础的库中都有此操作，为方便移除此规则，自己写的时候注意
