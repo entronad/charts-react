@@ -43,9 +43,7 @@ common文件夹中以symbol_rederer为主线
 
 
 
-命名参数用cfg对象的方式
-
-dart中自有，但js中需补充的，放在src/polyfills中
+dart中自有，但js中需补充的，放在src/dart中
 
 tsconfig根据antd 4.0.0-alpha.7修改
 
@@ -58,3 +56,43 @@ tsconfig根据antd 4.0.0-alpha.7修改
 js中没有assert
 
 no-param-reassign是很好的，但很多基础的库中都有此操作，为方便移除此规则，自己写的时候注意
+
+
+
+导出实现的效果，既可以类似没有as的时候的直接使用对象，也可以实现有as时要加命名空间
+
+ts中类型的导出好像比较特别，现在统一采用源文件中，直接添加export，移除import/prefer-default-export规则
+
+目标文件中有as用* as ，无as有show用{}，全部导入用*
+
+index用export*from
+
+src下的目录添加'package:'的方式引用，路径解析由于添加了path，不用eslint的检查了
+
+
+
+移除lines-between-class-members，方便组合成员
+
+
+
+命名参数及其默认值的形式参考https://mariusschulz.com/blog/typing-destructured-object-parameters-in-typescript
+
+```
+function toJSON(
+  value: any,
+  { pretty = true }: { pretty?: boolean } = {}
+) {
+  const indent = pretty ? 4 : 0;
+  return JSON.stringify(value, null, indent);
+}
+```
+
+注意命名参数如无说明都是可选的
+
+
+
+由于dart是可以给指定类型赋null的，故取消tsconfig中的strictNullChecks
+
+
+
+类方法尽量用箭头函数，constructor，存取器，react生命周期不用，所有成员定义（包括箭头函数）末尾加分号，方法定义（非箭头函数）不加分号

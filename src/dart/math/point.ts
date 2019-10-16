@@ -1,7 +1,6 @@
 // A utility class for representing two-dimensional positions.
 export class Point {
   readonly x: number;
-
   readonly y: number;
 
   constructor(x: number, y: number) {
@@ -15,14 +14,14 @@ export class Point {
   // this point.
   get magnitude() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
-  };
+  }
 
   // Returns the distance between `this` and [other].
   distanceTo = (other: Point) => {
     const dx = this.x - other.x;
     const dy = this.y - other.y;
     return Math.sqrt(dx * dx + dy * dy);
-  }
+  };
 
   // Returns the squared distance between `this` and [other].
   //
@@ -32,9 +31,5 @@ export class Point {
     const dx = this.x - other.x;
     const dy = this.y - other.y;
     return dx * dx + dy * dy;
-  }
-}
-
-export default {
-  Point,
+  };
 }

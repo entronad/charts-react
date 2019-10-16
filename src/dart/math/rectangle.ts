@@ -57,7 +57,7 @@ abstract class _RectangleBase {
       }
     }
     return null;
-  }
+  };
 
   // Returns true if `this` intersects [other].
   intersects = (other: Rectangle) =>
@@ -75,7 +75,7 @@ abstract class _RectangleBase {
     const top = Math.min(this.top, other.top);
 
     return new Rectangle(left, top, right - left, bottom - top);
-  }
+  };
 
   // Tests whether `this` entirely contains [another].
   containsRectangle = (another: Rectangle) =>
@@ -112,11 +112,8 @@ abstract class _RectangleBase {
 // immutable.
 export class Rectangle extends _RectangleBase {
   readonly left: number;
-
   readonly top: number;
-
   readonly width: number;
-
   readonly height: number;
 
   // Create a rectangle spanned by `(left, top)` and
@@ -149,13 +146,13 @@ export class Rectangle extends _RectangleBase {
   // (which can happen if one or both is a double),
   // the actual right edge might be slightly off from `max(a.x, b.x)`.
   // Similar for the y-coordinates and the bottom edge.
-  static fromPoints(a: Point, b: Point) {
+  static fromPoints = (a: Point, b: Point) => {
     const left = Math.min(a.x, b.x);
     const width = Math.max(a.x, b.x) - left;
     const top = Math.min(a.y, b.y);
     const height = Math.max(a.y, b.y) - top;
     return new Rectangle(left, top, width, height);
-  }
+  };
 }
 
 // A class for representing two-dimensional axis-aligned rectangles with
@@ -172,7 +169,6 @@ export class MutableRectangle extends _RectangleBase implements Rectangle {
   top: number;
 
   _width: number;
-
   _height: number;
 
   // Create a mutable rectangle spanned by `(left, top)` and
@@ -205,13 +201,13 @@ export class MutableRectangle extends _RectangleBase implements Rectangle {
   // (which can happen if one or both is a double),
   // the actual right edge might be slightly off from `max(a.x, b.x)`.
   // Similar for the y-coordinates and the bottom edge.
-  static fromPoints(a: Point, b: Point) {
+  static fromPoints = (a: Point, b: Point) => {
     const left = Math.min(a.x, b.x);
     const width = Math.max(a.x, b.x) - left;
     const top = Math.min(a.y, b.y);
     const height = Math.max(a.y, b.y) - top;
     return new MutableRectangle(left, top, width, height);
-  }
+  };
 
   get width() {
     return this._width;
@@ -254,8 +250,3 @@ export class MutableRectangle extends _RectangleBase implements Rectangle {
 //
 // Returns `0` if value is int, `0.0` if value is double.
 const _clampToZero = (value: number) => -value * 0;
-
-export default {
-  Rectangle,
-  MutableRectangle,
-}

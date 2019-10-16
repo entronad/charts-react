@@ -82,6 +82,9 @@ const eslintrc = {
     // add
     'no-use-before-define': 0,
     'no-param-reassign': 0,
+    "import/prefer-default-export": 0,
+    "import/no-unresolved": 0,
+    "lines-between-class-members": 0,
   },
   globals: {
     gtag: true,

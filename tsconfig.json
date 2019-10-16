@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -11,7 +10,11 @@
     "target": "es6",
     "lib": ["dom", "es2017"],
     "declarationDir": "dist/types",
-    "declaration": true
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "package:*": ["./src/*"]
+    },
   },
   "include": [
     "src/**/*"
