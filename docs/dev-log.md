@@ -53,8 +53,6 @@ tsconfig根据antd 4.0.0-alpha.7修改
 
 为模拟编译型的dart语言，变量定义顺序无所谓，去除no-use-before-define
 
-js中没有assert
-
 no-param-reassign是很好的，但很多基础的库中都有此操作，为方便移除此规则，自己写的时候注意
 
 
@@ -96,3 +94,15 @@ function toJSON(
 
 
 类方法尽量用箭头函数，constructor，存取器，react生命周期不用，所有成员定义（包括箭头函数）末尾加分号，方法定义（非箭头函数）不加分号
+
+
+
+很多地方涉及位操作，移除eslint的禁止规则
+
+
+
+添加一个assert方法
+
+
+
+相对路径同目录下加./

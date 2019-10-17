@@ -1,3 +1,4 @@
+import { assert } from 'package:dart/assert';
 import { Point } from './point';
 
 // A base class for representing two-dimensional axis-aligned rectangles.
@@ -249,4 +250,7 @@ export class MutableRectangle extends _RectangleBase implements Rectangle {
 // Converts a negative [int] or [double] to a zero-value of the same type.
 //
 // Returns `0` if value is int, `0.0` if value is double.
-const _clampToZero = (value: number) => -value * 0;
+const _clampToZero = (value: number) => {
+  assert(value < 0);
+  return -value * 0;
+};
