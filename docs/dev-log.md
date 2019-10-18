@@ -73,7 +73,9 @@ src下的目录添加'package:'的方式引用，路径解析由于添加了path
 
 
 
-命名参数及其默认值的形式参考https://mariusschulz.com/blog/typing-destructured-object-parameters-in-typescript
+命名参数及其默认值的形式参考https://mariusschulz.com/blog/typing-destructured-object-parameters-in-typescript ,
+
+注意类型表后面的 = {}，但在抽象函数中不能加={},记得实现中要加回来
 
 ```
 function toJSON(
@@ -106,3 +108,11 @@ function toJSON(
 
 
 相对路径同目录下加./
+
+
+
+CanvasBarStack中的_internal构造函数不单独剥离出来，注意其构造函数是工厂型的需进行改造 其传入字段中没有fullStackRect
+
+
+
+abstract set 不需指明返回void

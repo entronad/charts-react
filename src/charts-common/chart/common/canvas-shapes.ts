@@ -3,7 +3,7 @@ import { Rectangle, Point } from 'package:dart/math';
 import { Color } from '../../common/color';
 import { FillPatternType } from './chart-canvas';
 
-/// A rectangle to be painted by [ChartCanvas].
+// A rectangle to be painted by [ChartCanvas].
 export class CanvasRect {
   readonly bounds: Rectangle;
   readonly dashPattern: Array<number>;
@@ -24,7 +24,7 @@ export class CanvasRect {
     pattern?: FillPatternType,
     stroke?: Color,
     strokeWidthPx?: number, 
-  }) {
+  } = {}) {
     this.bounds = bounds;
     this.dashPattern = dashPattern;
     this.fill = fill;
@@ -34,8 +34,8 @@ export class CanvasRect {
   }
 }
 
-/// A stack of [CanvasRect] to be painted by [ChartCanvas].
-class CanvasBarStack {
+// A stack of [CanvasRect] to be painted by [ChartCanvas].
+export class CanvasBarStack {
   readonly segments: Array<CanvasRect>;
   readonly radius: number;
   readonly stackedBarPadding: number;
@@ -47,11 +47,11 @@ class CanvasBarStack {
 
   constructor(segments: Array<CanvasRect>, {
     radius,
-    stackedBarPadding,
-    roundTopLeft,
-    roundTopRight,
-    roundBottomLeft,
-    roundBottomRight,
+    stackedBarPadding = 1,
+    roundTopLeft = false,
+    roundTopRight = false,
+    roundBottomLeft = false,
+    roundBottomRight = false,
   }: {
     radius?: number;
     stackedBarPadding?: number;
@@ -59,8 +59,7 @@ class CanvasBarStack {
     roundTopRight?: boolean;
     roundBottomLeft?: boolean;
     roundBottomRight?: boolean;
-    fullStackRect?: Rectangle;
-  }) {
+  } = {}) {
     const firstBarBounds = segments[0].bounds;
 
     // Find the rectangle that would represent the full stack of bars.
@@ -77,8 +76,46 @@ class CanvasBarStack {
 
     const width = right - left;
     const height = bottom - top;
-    const fallStackRect = new Rectangle(left, top, width, height);
+    const fullStackRect = new Rectangle(left, top, width, height);
+
+    this.segments = segments;
+    this.radius = radius;
+    this.stackedBarPadding = stackedBarPadding;
+    this.roundTopLeft = roundTopLeft;
+    this.roundTopRight = roundTopRight;
+    this.roundBottomLeft = roundBottomLeft;
+    this.roundBottomRight = roundBottomRight;
+    this.fullStackRect = fullStackRect;
   }
 }
 
+// A list of [CanvasPieSlice]s to be painted by [ChartCanvas].
+export class CanvasPie {
+  readonly slices: Array<CanvasPieSlice>;
+  center: Point;
+  radius: number;
+  innerRadius: number;
 
+  // Color of separator lines between arcs.
+  readonly stroke: Color;
+
+  // Stroke width of separator lines between arcs.
+  strokeWidthPx: number;
+}
+
+// A circle sector to be painted by [ChartCanvas].
+export class CanvasPieSlice {
+  startAngle: number;
+  endAngle: number;
+  fill: Color;
+
+  constructor(
+    startAngle: number,
+    endAngle: number,
+    { fill }: { fill?: Color } = {}
+  ) {
+    this.startAngle = startAngle;
+    this.endAngle = endAngle;
+    this.fill = fill;
+  }
+}

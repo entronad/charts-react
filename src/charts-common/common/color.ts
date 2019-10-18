@@ -30,7 +30,7 @@ export class Color {
     a?: number,
     darker?: Color,
     lighter?: Color,
-  }) {
+  } = {}) {
     this.r = r;
     this.g = g;
     this.b = b;
@@ -47,7 +47,7 @@ export class Color {
     color?: Color,
     darker?: Color,
     lighter?: Color,
-  }) => new Color({
+  } = {}) => new Color({
     r: color.r,
     g: color.g,
     b: color.b,
