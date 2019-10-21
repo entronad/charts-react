@@ -1,3 +1,9 @@
+import { Rectangle, Point } from 'package:dart/math';
+
+import { ChartCanvas } from '../chart/common/chart-canvas';
+import { Color } from './color';
+import {} 
+
 /// Strategy for rendering a symbol.
 abstract class BaseSymbolRenderer {
   abstract shouldRepaint(oldRenderer: BaseSymbolRenderer): boolean;

@@ -86,6 +86,7 @@ const eslintrc = {
     "import/no-unresolved": 0,
     "lines-between-class-members": 0,
     "no-bitwise": 0,
+    "class-methods-use-this": 0,
   },
   globals: {
     gtag: true,

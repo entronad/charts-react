@@ -116,3 +116,23 @@ CanvasBarStack中的_internal构造函数不单独剥离出来，注意其构造
 
 
 abstract set 不需指明返回void
+
+
+
+drawText实现的时候注意rotation要初始化0.0
+
+
+
+ts中数组的定义类型和初始化不好合成在一起，需单独指定，特别是数组要记得指定
+
+
+
+ts/js中目前没有注解，没有@overrides
+
+
+
+不能在静态属性初始化表达式中引用 "this"
+
+目前包括this.constructor都不太好用，只能老老实实写类名
+
+移除class-methods-use-this
