@@ -136,3 +136,27 @@ ts/js中目前没有注解，没有@overrides
 目前包括this.constructor都不太好用，只能老老实实写类名
 
 移除class-methods-use-this
+
+
+
+material-palette的懒加载要根据ts的特点处理一下
+
+
+
+添加并配置"@babel/plugin-proposal-optional-chaining": "^7.6.0",
+
+
+
+dart的optional chaining具有函数安全的功能，由于类型，不可能出现取出来是不可调用但有执行操作符()的情况
+
+为处理函数的问题，并且现在ts也不太支持optional chaining，不采用@babel/plugin-proposal-optional-chaining，
+
+采用lodash并增加函数的功能，添加在dependence中
+
+在get中通过判断是否显式传入参数来决定是获取还是执行函数(有剩余运算符的)，有可能出现取出来是‘somestr'但传入参数的情况，
+
+?. 主要是来解决控制的问题，类型不匹配应该报错，处理不了没参数的情况，参数用数组装
+
+
+
+Non-null assertion operator : ! 的作用是告诉编译期它不为null，不是optional chaining

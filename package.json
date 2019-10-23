@@ -24,19 +24,19 @@
   },
   "main": "dist/bundle.js",
   "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
   "devDependencies": {
     "@babel/core": "7.6.2",
     "@babel/plugin-proposal-class-properties": "7.5.5",
     "@babel/plugin-proposal-object-rest-spread": "7.6.2",
     "@babel/preset-env": "7.6.2",
     "@babel/preset-typescript": "7.6.0",
-    "babel-loader": "8.0.6",
-    "fork-ts-checker-webpack-plugin": "1.5.0",
-    "typescript": "3.6.3",
-    "webpack": "4.41.0",
-    "webpack-cli": "3.3.9",
+    "@types/lodash": "^4.14.144",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
+    "babel-loader": "8.0.6",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-prettier": "^6.0.0",
@@ -46,7 +46,11 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-markdown": "^1.0.0",
     "eslint-plugin-react": "^7.14.2",
-    "eslint-tinker": "^0.5.0"
+    "eslint-tinker": "^0.5.0",
+    "fork-ts-checker-webpack-plugin": "1.5.0",
+    "typescript": "3.6.3",
+    "webpack": "4.41.0",
+    "webpack-cli": "3.3.9"
   },
   "resolutions": {
     "terser": "3.14.1"

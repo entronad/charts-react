@@ -1,3 +1,4 @@
+import { get } from 'package:dart/get';
 import { LineStyleSpec } from '../../chart/cartesian/axis/spec/axis-spec';
 import { Color } from '../color';
 import { GraphicsFactory } from '../graphics-factory';
@@ -19,5 +20,15 @@ export class MaterialStyle implements Style {
     return MaterialPalette.white;
   }
 
-  getOrderedPalettes = (count: number) => MaterialPalette.ge
+  getOrderedPalettes = (count: number) =>
+    MaterialPalette.getOrderedPalettes(count);
+
+  createAxisLineStyle = (
+    graphicFactory: GraphicsFactory,
+    spec: LineStyleSpec,
+  ) => {
+    const rst = graphicFactory.createLinePaint();
+    rst.color = get(spec, 'color') || MaterialPalette.gray.shadeDefault;
+    rst.dashPattern = get(spec, 'dashPattern')
+  }
 }

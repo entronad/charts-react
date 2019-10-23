@@ -47,10 +47,22 @@ export class MaterialPalette {
   }
 
   // Lazily-instantiated iterable, to avoid allocating colors that are not used.
-  static readonly _orderedPalettes: Array<Palette> = [
+  static readonly _orderedPalettes: Array<() => Palette> = [
     () => MaterialPalette.blue,
     () => MaterialPalette.red,
-  ].map(f => f());
+    () => MaterialPalette.yellow,
+    () => MaterialPalette.green,
+    () => MaterialPalette.purple,
+    () => MaterialPalette.cyan,
+    () => MaterialPalette.deepOrange,
+    () => MaterialPalette.lime,
+    () => MaterialPalette.indigo,
+    () => MaterialPalette.pink,
+    () => MaterialPalette.teal,
+  ];
+
+  static getOrderedPalettes = (count: number) =>
+    MaterialPalette._orderedPalettes.slice(0, count).map(f => f());
 }
 
 export class MaterialBlue extends Palette {
