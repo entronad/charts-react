@@ -85,6 +85,13 @@ export class Color {
     });
   }
 
+  equal = (other: any) =>
+    (other instanceof Color &&
+    other.r === this.r &&
+    other.g === this.g &&
+    other.b === this.b &&
+    other.a === this.a);
+
   toString = () => this.rgbaHexString;
 
   // Converts the character into a #RGBA hex string.

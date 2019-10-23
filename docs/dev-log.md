@@ -157,6 +157,26 @@ dart的optional chaining具有函数安全的功能，由于类型，不可能�
 
 ?. 主要是来解决控制的问题，类型不匹配应该报错，处理不了没参数的情况，参数用数组装
 
+get不要用keyof定义类型，感觉这样不能写链
+
 
 
 Non-null assertion operator : ! 的作用是告诉编译期它不为null，不是optional chaining
+
+
+
+dart中的 field 和面向对象的 private protected不太一样，先不加这些前缀
+
+
+
+注意StyleFactory中不再覆盖默认构造函数
+
+
+
+注意有些对象dart中重写了 运算符，也要重写对应的方法，hashCode除外
+
+==          equal(other: any): boolean
+
+\+            add(other: T): T
+
+\*            scale(factor: number): T

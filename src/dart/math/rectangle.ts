@@ -38,6 +38,15 @@ abstract class _RectangleBase {
 
   toString = () => `Rectangle (${this.left}, ${this.top}) ${this.width} x ${this.height}`;
 
+  equal = (other: any) =>
+    // Can't change argument type to `Object` since subclasses inherit it
+    // and uses their argument dynamically.
+    (other instanceof Rectangle &&
+    this.left === other.left &&
+    this.top === other.top &&
+    this.right === other.right &&
+    this.bottom === other.bottom);
+
   // Computes the intersection of `this` and [other].
   //
   // The intersection of two axis-aligned rectangles, if any, is always another
