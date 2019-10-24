@@ -31,6 +31,18 @@ eslint采用typescript-eslint, 相关依赖和eslintrc参考antd 4.0.0-alpha.7�
 
 
 
+添加依赖注意
+
+1.和antd一样项目要用到的库添加到dependence而不是dev中
+
+2.lodash、gl-matrix等注意手动按需加载，注意gl-matrix正确的按需路径：gl-matrix/src/gl-matrix/vec2
+
+
+
+
+
+
+
 2019-10-14 google/charts 基线0.8.1
 
 
@@ -153,6 +165,10 @@ dart的optional chaining具有函数安全的功能，由于类型，不可能�
 
 采用lodash并增加函数的功能，添加在dependence中
 
+```
+"lodash": "^4.17.15"
+```
+
 在get中通过判断是否显式传入参数来决定是获取还是执行函数(有剩余运算符的)，有可能出现取出来是‘somestr'但传入参数的情况，
 
 ?. 主要是来解决控制的问题，类型不匹配应该报错，处理不了没参数的情况，参数用数组装
@@ -175,8 +191,45 @@ dart中的 field 和面向对象的 private protected不太一样，先不加这
 
 注意有些对象dart中重写了 运算符，也要重写对应的方法，hashCode除外
 
-==          equal(other: any): boolean
+运算符名称采用和gl-matrix简写版一样，gl的函数也使用简写版名称
+
+==          equals(other: any): boolean
 
 \+            add(other: T): T
 
-\*            scale(factor: number): T
+\-             sub(other: T): T
+
+\*            scale(factor: number): T  |  mul  |  dot  |  cross
+
+/             div
+
+
+
+遇到override的函数有不要用的命名参数的情况，与dart一致保留参数类型签名
+
+
+
+争取实现rtl
+
+css有direction属性处理rtl
+
+
+
+ts中对象和函数的定义都用接口，接口甚至可以同时定义对象和函数，也可以像实际的接口那样被类实现
+
+
+
+eslint临时禁用规则主要放在文件层面，写在文件头，不重新开启
+
+
+
+数组处理库用gl-matrix
+
+```
+"gl-matrix": "^3.1.0",
+```
+
+
+
+注意 vec2的各函数是有返回值的，只是要传个out做源，必须是vec2类型
+

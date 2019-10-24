@@ -15,7 +15,7 @@ export class Point {
   // This point is equal to `other` if, and only if,
   // `other` is a `Point` with
   // [x] equal to `other.x` and [y] equal to `other.y`.
-  equal = (other: any) =>
+  equals = (other: any) =>
     (other instanceof Point && this.x === other.x && this.y === other.y);
   
   // Add [other] to `this`, as if both points were vectors.
@@ -27,7 +27,7 @@ export class Point {
   // Subtract [other] from `this`, as if both points were vectors.
   //
   // Returns the resulting "vector" as a Point.
-  substract = (other: Point) =>
+  sub = (other: Point) =>
     new Point(this.x - other.x, this.y - other.y);
 
   // Scale this point by [factor] as if it were a vector.

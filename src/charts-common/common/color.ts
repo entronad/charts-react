@@ -85,7 +85,7 @@ export class Color {
     });
   }
 
-  equal = (other: any) =>
+  equals = (other: any) =>
     (other instanceof Color &&
     other.r === this.r &&
     other.g === this.g &&
