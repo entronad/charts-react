@@ -239,3 +239,19 @@ eslint临时禁用规则主要放在文件层面，写在文件头，不重新�
 
 但是我们采用和dart vector_math 一样的逻辑新开空间
 
+
+
+// TODO datetimefactory，手势相关用到再写
+
+
+
+在canvas_shape中，要用internal主要是为了无需传入，自动计算fullStackRect
+
+series中，internal构造函数传入的是R AccessorFn<R>(int index)类型，而同名工厂构造函数传入的是R TypedAccessorFn<T, R>(T datum, int index);类型，
+
+把它们统一到构造函数中
+
+
+
+js中好像会继承构造函数，因为它是唯一的
+
