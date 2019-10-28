@@ -7,6 +7,12 @@ export class TypedRegistry {
   setAttr = <R>(key: TypedKey<R>, value: R) => {
     this._registry.set(key, value);
   }
+
+  mergeFrom = (other: TypedRegistry) => {
+    other._registry.forEach((value, key) => {
+      this._registry.set(key, value);
+    })
+  }
 }
 
 export class TypedKey<R> {

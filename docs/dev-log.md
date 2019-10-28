@@ -255,3 +255,6 @@ series中，internal构造函数传入的是R AccessorFn<R>(int index)类型，�
 
 js中好像会继承构造函数，因为它是唯一的
 
+
+
+TS中类要先定义后使用

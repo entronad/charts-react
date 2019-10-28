@@ -5,15 +5,15 @@ import { Color } from '../common/color';
 import { TypedRegistry, TypedKey } from '../common/typed-registry';
 
 export class Series<T, D> {
-  readonly id: String;
-  readonly displayName: String;
+  readonly id: string;
+  readonly displayName: string;
 
   // Overlay series provided supplemental information on a chart, but are not
   // considered to be primary data. They should not be selectable by user
   // interaction.
   readonly overlaySeries: boolean;
 
-  readonly seriesCategory: String;
+  readonly seriesCategory: string;
 
   // Color which represents the entire series in legends.
   //
@@ -36,7 +36,7 @@ export class Series<T, D> {
   //
   // Note: This is currently an optional function that is not fully used by all
   // series renderers yet.
-  readonly keyFn: AccessorFn<String>;
+  readonly keyFn: AccessorFn<string>;
 
   readonly domainFn: AccessorFn<D>;
   readonly domainFormatterFn: AccessorFn<DomainFormatter<D>>;
@@ -79,7 +79,7 @@ export class Series<T, D> {
   readonly fillPatternFn: AccessorFn<FillPatternType>;
   readonly radiusPxFn: AccessorFn<number>;
   readonly strokeWidthPxFn: AccessorFn<number>;
-  readonly labelAccessorFn: AccessorFn<String>;
+  readonly labelAccessorFn: AccessorFn<string>;
   readonly insideLabelStyleAccessorFn: AccessorFn<TextStyleSpec>;
   readonly outsideLabelStyleAccessorFn: AccessorFn<TextStyleSpec>;
 
