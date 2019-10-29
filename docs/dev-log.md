@@ -258,3 +258,11 @@ js中好像会继承构造函数，因为它是唯一的
 
 
 TS中类要先定义后使用
+
+
+
+dart中使用了@protected的注解的，ts中也使用对应的，但注意访问器可见性要一致
+
+
+
+Queue主要是要removeFirst和addAll功能，js数组自带此功能
