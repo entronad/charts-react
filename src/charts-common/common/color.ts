@@ -1,4 +1,4 @@
-import { assert } from 'package:dart/assert';
+import { assert } from 'package:dart/keywords';
 
 export class Color {
   static readonly black = new Color({ r: 0, g: 0, b: 0 });

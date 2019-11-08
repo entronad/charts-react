@@ -1,4 +1,4 @@
-import { get } from 'package:dart/get';
+import { get } from 'package:dart/operators';
 import { LineStyleSpec } from '../../chart/cartesian/axis/spec/axis-spec';
 import { GraphicsFactory } from '../graphics-factory';
 import { MaterialPalette } from '../material-palette';
