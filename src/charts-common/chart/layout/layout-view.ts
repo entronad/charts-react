@@ -161,6 +161,14 @@ export class LayoutViewConfig {
 //
 // The measurement is tight to the component, without adding [ComponentBuffer].
 export class ViewMeasuredSizes {
+  // All zeroes component size.
+  static readonly zero = new ViewMeasuredSizes({
+    preferredWidth: 0,
+    preferredHeight: 0,
+    minWidth: 0,
+    minHeight: 0,
+  });
+
   readonly preferredWidth: number;
   readonly preferredHeight: number;
   readonly minWidth: number;
