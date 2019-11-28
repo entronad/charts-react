@@ -1,4 +1,5 @@
-import { get } from 'package:dart/operators';
+import { safeGet } from 'package:dart/operators';
+
 import { LineStyleSpec } from '../../chart/cartesian/axis/spec/axis-spec';
 import { GraphicsFactory } from '../graphics-factory';
 import { MaterialPalette } from '../material-palette';
@@ -25,9 +26,9 @@ export class MaterialStyle implements Style {
     spec: LineStyleSpec,
   ) => {
     const rst = graphicFactory.createLinePaint();
-    rst.color = get(spec, 'color') || MaterialPalette.gray.shadeDefault;
-    rst.dashPattern = get(spec, 'dashPattern');
-    rst.strokeWidth = get(spec, 'thickness') || 1;
+    rst.color = safeGet(spec, 'color') || MaterialPalette.gray.shadeDefault;
+    rst.dashPattern = safeGet(spec, 'dashPattern');
+    rst.strokeWidth = safeGet(spec, 'thickness') || 1;
     return rst;
   };
 
@@ -36,9 +37,9 @@ export class MaterialStyle implements Style {
     spec: LineStyleSpec,
   ) => {
     const rst = graphicFactory.createLinePaint();
-    rst.color = get(spec, 'color') || MaterialPalette.gray.shadeDefault;
-    rst.dashPattern = get(spec, 'dashPattern');
-    rst.strokeWidth = get(spec, 'thickness') || 1;
+    rst.color = safeGet(spec, 'color') || MaterialPalette.gray.shadeDefault;
+    rst.dashPattern = safeGet(spec, 'dashPattern');
+    rst.strokeWidth = safeGet(spec, 'thickness') || 1;
     return rst;
   };
 
@@ -55,9 +56,9 @@ export class MaterialStyle implements Style {
     spec: LineStyleSpec,
   ) => {
     const rst = graphicFactory.createLinePaint();
-    rst.color = get(spec, 'color') || MaterialPalette.gray.shade300;
-    rst.dashPattern = get(spec, 'dashPattern');
-    rst.strokeWidth = get(spec, 'thickness') || 1;
+    rst.color = safeGet(spec, 'color') || MaterialPalette.gray.shade300;
+    rst.dashPattern = safeGet(spec, 'dashPattern');
+    rst.strokeWidth = safeGet(spec, 'thickness') || 1;
     return rst;
   };
 

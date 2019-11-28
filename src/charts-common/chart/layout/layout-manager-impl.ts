@@ -1,6 +1,6 @@
 import { Point, Rectangle } from 'package:dart/math';
 import { assert } from 'package:dart/keywords';
-import { get } from 'package:dart/operators';
+import { safeGet } from 'package:dart/operators';
 
 import { LayoutConfig } from './layout-config';
 import { LayoutManager } from './layout-manager';
@@ -106,7 +106,7 @@ export class LayoutManagerImpl implements LayoutManager {
     const drawableViews =
       this._views.filter((view) => view.isSeriesRenderer);
     
-    let componentBounds = get(drawableViews, 'first.componentBounds');
+    let componentBounds = safeGet(drawableViews, 'first.componentBounds');
 
     if (componentBounds != null) {
       for (const view of drawableViews.slice(2)) {
@@ -270,10 +270,10 @@ export class LayoutManagerImpl implements LayoutManager {
 
     // Assume the full width and height of the chart is available when measuring
     // for the first time but adjust the maximum if margin spec is set.
-    let leftWidth = get(previousMeasurements, 'leftWidth') || maxLeftWidth;
-    let rightWidth = get(previousMeasurements, 'rightWidth') || maxRightWidth;
-    let bottomHeight = get(previousMeasurements, 'bottomHeight') || maxBottomHeight;
-    let topHeight = get(previousMeasurements, 'topHeight') || maxTopHeight;
+    let leftWidth = safeGet(previousMeasurements, 'leftWidth') || maxLeftWidth;
+    let rightWidth = safeGet(previousMeasurements, 'rightWidth') || maxRightWidth;
+    let bottomHeight = safeGet(previousMeasurements, 'bottomHeight') || maxBottomHeight;
+    let topHeight = safeGet(previousMeasurements, 'topHeight') || maxTopHeight;
 
     // Only adjust the height if we have previous measurements.
     const adjustedHeight = (previousMeasurements)
