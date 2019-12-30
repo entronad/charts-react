@@ -211,7 +211,7 @@ dart中的 field 和面向对象的 private protected不太一样，先不加这
 
 争取实现rtl
 
-css有direction属性处理rtl
+canvas文字有direction属性处理rtl
 
 
 
@@ -280,6 +280,10 @@ js时间没有microsecond
 当Date作为构造函数调用并传入多个参数时，所定义参数代表的是当地时间。如果需要使用世界协调时 UTC，使用 `new Date(Date.UTC(...))` 和相同参数。
 
 Dart中有个状态记录DateTime当前是使用本地还是utc，而js中是通过调用不同函数，目前先只在createDateTime中体现差异
+
+DateFormat实现以下方法：addPattern, format, parse, duration部分dart自己也没有实现
+
+并且pattern仅保留一个，addPattern起到set的作用
 
 
 
