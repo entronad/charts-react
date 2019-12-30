@@ -88,6 +88,7 @@ const eslintrc = {
     "no-bitwise": 0,
     "class-methods-use-this": 0,
     "no-restricted-syntax": 0,
+    "import/extensions": 0,
   },
   globals: {
     gtag: true,
