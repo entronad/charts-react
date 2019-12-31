@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export class DateFormat {
   constructor(pattern?: string) {
     this._pattern = pattern;
@@ -13,7 +15,11 @@ export class DateFormat {
     this._pattern = pattern;
   }
 
-  format = (date: Date) => {
-    
-  }
+  format = (date: Date) =>
+    moment(date).format(this._pattern);
+
+  parse = (inputString: string, utc = false) =>
+    utc
+    ? moment.utc(inputString, this._pattern)
+    : moment(inputString, this._pattern);
 }
