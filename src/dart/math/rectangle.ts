@@ -1,4 +1,4 @@
-import { assert } from 'package:dart/keywords';
+import { assert } from 'package:dart/core';
 import { Point } from './point';
 
 // A base class for representing two-dimensional axis-aligned rectangles.

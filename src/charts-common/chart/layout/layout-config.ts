@@ -1,4 +1,4 @@
-import { assert } from 'package:dart/keywords';
+import { assert } from 'package:dart/core';
 
 // Collection of configurations that apply to the [LayoutManager].
 export class LayoutConfig {

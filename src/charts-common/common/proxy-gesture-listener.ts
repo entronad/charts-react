@@ -1,5 +1,5 @@
 import { Point } from 'package:dart/math';
-import { remove } from 'package:dart/array';
+import { remove } from 'package:dart/core';
 
 import { GestureListener } from './gesture-listener';
 

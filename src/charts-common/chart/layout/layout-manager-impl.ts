@@ -1,5 +1,5 @@
 import { Point, Rectangle } from 'package:dart/math';
-import { assert } from 'package:dart/keywords';
+import { assert } from 'package:dart/core';
 
 import { LayoutConfig } from './layout-config';
 import { LayoutManager } from './layout-manager';

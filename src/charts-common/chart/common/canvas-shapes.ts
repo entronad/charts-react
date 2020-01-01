@@ -112,7 +112,7 @@ export class CanvasPieSlice {
   constructor(
     startAngle: number,
     endAngle: number,
-    { fill }: { fill?: Color } = {}
+    { fill }: { fill?: Color } = {},
   ) {
     this.startAngle = startAngle;
     this.endAngle = endAngle;
