@@ -43,7 +43,7 @@ export class LayoutManagerImpl implements LayoutManager {
 
   // Create a new [LayoutManager].
   constructor({ config }: { config?: LayoutConfig } = {}) {
-    this.config = config || new LayoutConfig();
+    this.config = config ?? new LayoutConfig();
   }
 
   // Add one [LayoutView].
@@ -242,7 +242,7 @@ export class LayoutManagerImpl implements LayoutManager {
 
   _viewsForPositions = (p1: LayoutPosition, p2?: LayoutPosition) =>
     this.positionOrderedViews.filter((view) =>
-      view.layoutConfig.position === p1 || (p2 && view.layoutConfig.position === p2));
+      view.layoutConfig.position === p1 ?? (p2 && view.layoutConfig.position === p2));
   
   // Measure and return size measurements.
   // [width] full width of chart
@@ -269,10 +269,10 @@ export class LayoutManagerImpl implements LayoutManager {
 
     // Assume the full width and height of the chart is available when measuring
     // for the first time but adjust the maximum if margin spec is set.
-    let leftWidth = previousMeasurements?.leftWidth || maxLeftWidth;
-    let rightWidth = previousMeasurements?.rightWidth || maxRightWidth;
-    let bottomHeight = previousMeasurements?.bottomHeight || maxBottomHeight;
-    let topHeight = previousMeasurements?.topHeight || maxTopHeight;
+    let leftWidth = previousMeasurements?.leftWidth ?? maxLeftWidth;
+    let rightWidth = previousMeasurements?.rightWidth ?? maxRightWidth;
+    let bottomHeight = previousMeasurements?.bottomHeight ?? maxBottomHeight;
+    let topHeight = previousMeasurements?.topHeight ?? maxTopHeight;
 
     // Only adjust the height if we have previous measurements.
     const adjustedHeight = (previousMeasurements)

@@ -83,10 +83,10 @@ export class ViewMargin {
     rightPx?: number,
     leftPx?: number,
   } = {}) {
-    this.topPx = topPx || 0;
-    this.bottomPx = bottomPx || 0;
-    this.rightPx = rightPx || 0;
-    this.leftPx = leftPx || 0;
+    this.topPx = topPx ?? 0;
+    this.bottomPx = bottomPx ?? 0;
+    this.rightPx = rightPx ?? 0;
+    this.leftPx = leftPx ?? 0;
   }
 
   // Total width.
@@ -145,7 +145,7 @@ export class LayoutViewConfig {
     this.paintOrder = paintOrder;
     this.position = position;
     this.positionOrder = positionOrder;
-    this.viewMargin = viewMargin || ViewMargin.empty;
+    this.viewMargin = viewMargin ?? ViewMargin.empty;
   }
 
   // Returns true if it is a full position.
@@ -193,8 +193,8 @@ export class ViewMeasuredSizes {
   }) {
     this.preferredWidth = preferredWidth;
     this.preferredHeight = preferredHeight;
-    this.minWidth = minWidth || 0;
-    this.minHeight = minHeight || 0;
+    this.minWidth = minWidth ?? 0;
+    this.minHeight = minHeight ?? 0;
   }
 }
 

@@ -88,8 +88,8 @@ export class GestureListener {
     onDragUpdate?: GestureDragUpdateCallback;
     onDragEnd?: GestureDragEndCallback;
   } = {}) {
-    this.onTapTest = onTapTest || GestureListener.defaultTapTest;
-    this.onTapCancel = onTapCancel || GestureListener.defaultTapCancel;
+    this.onTapTest = onTapTest ?? GestureListener.defaultTapTest;
+    this.onTapCancel = onTapCancel ?? GestureListener.defaultTapCancel;
     this.onLongPress = onLongPress;
     this.onTap = onTap;
     this.onHover = onHover;

@@ -311,3 +311,18 @@ duration部分dart自己也没有实现
 "moment": "^2.24.0",
 ```
 
+
+
+Map可以采取构造函数添加泛型的方法，而不需要冒号添加类型
+
+
+
+a ??= b 用 a = a ?? b 代替
+
+短路赋值替换为 ??
+
+
+
+在 selection_model 中有 List.unmodifiable 先只是返回个浅拷贝
+
+selection_model 中第89行有问题，应该是遍历寻找series的id是否与前面相等，而不是简单的contains.

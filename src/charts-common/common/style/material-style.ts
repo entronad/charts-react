@@ -24,9 +24,9 @@ export class MaterialStyle implements Style {
     spec: LineStyleSpec,
   ) => {
     const rst = graphicFactory.createLinePaint();
-    rst.color = spec?.color || MaterialPalette.gray.shadeDefault;
+    rst.color = spec?.color ?? MaterialPalette.gray.shadeDefault;
     rst.dashPattern = spec?.dashPattern;
-    rst.strokeWidth = spec?.thickness || 1;
+    rst.strokeWidth = spec?.thickness ?? 1;
     return rst;
   };
 
@@ -35,9 +35,9 @@ export class MaterialStyle implements Style {
     spec: LineStyleSpec,
   ) => {
     const rst = graphicFactory.createLinePaint();
-    rst.color = spec?.color || MaterialPalette.gray.shadeDefault;
+    rst.color = spec?.color ?? MaterialPalette.gray.shadeDefault;
     rst.dashPattern = spec?.dashPattern;
-    rst.strokeWidth = spec?.thickness || 1;
+    rst.strokeWidth = spec?.thickness ?? 1;
     return rst;
   };
 
@@ -54,9 +54,9 @@ export class MaterialStyle implements Style {
     spec: LineStyleSpec,
   ) => {
     const rst = graphicFactory.createLinePaint();
-    rst.color = spec?.color || MaterialPalette.gray.shade300;
+    rst.color = spec?.color ?? MaterialPalette.gray.shade300;
     rst.dashPattern = spec?.dashPattern;
-    rst.strokeWidth = spec?.thickness || 1;
+    rst.strokeWidth = spec?.thickness ?? 1;
     return rst;
   };
 

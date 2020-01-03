@@ -19,10 +19,10 @@ export class LayoutConfig {
     topSpec?: MarginSpec,
     bottomSpec?: MarginSpec,
   } = {}) {
-    this.leftSpec = leftSpec || MarginSpec.defaultSpec;
-    this.rightSpec = rightSpec || MarginSpec.defaultSpec;
-    this.topSpec = topSpec || MarginSpec.defaultSpec;
-    this.bottomSpec = bottomSpec || MarginSpec.defaultSpec;
+    this.leftSpec = leftSpec ?? MarginSpec.defaultSpec;
+    this.rightSpec = rightSpec ?? MarginSpec.defaultSpec;
+    this.topSpec = topSpec ?? MarginSpec.defaultSpec;
+    this.bottomSpec = bottomSpec ?? MarginSpec.defaultSpec;
   }
 }
 

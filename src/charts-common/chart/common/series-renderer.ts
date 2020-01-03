@@ -175,7 +175,7 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
 
     // Count up the number of missing series per category, keeping a max across
     // categories.
-    const missingColorCountPerCategory: Map<string, number> = new Map();
+    const missingColorCountPerCategory = new Map<string, number>();
     let maxMissing = 0;
     let hasSpecifiedCategory = false;
 
@@ -198,7 +198,7 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
         }
 
         // Increment the missing counts for the category.
-        const missingCnt = (missingColorCountPerCategory.get(category) || 0) + 1;
+        const missingCnt = (missingColorCountPerCategory.get(category) ?? 0) + 1;
         missingColorCountPerCategory.set(category, missingCnt);
         maxMissing = Math.max(maxMissing, missingCnt);
       }
@@ -215,7 +215,7 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
             const color = palettes[index % palettes.length].shadeDefault;
             index++;
             series.colorFn = (_) => color;
-            series.seriesColor = series.seriesColor || color;
+            series.seriesColor = series.seriesColor ?? color;
           } else if (series.seriesColor == null) {
             // Fill in missing seriesColor values with the color of the first
             // datum in the series. Note that [Series.colorFn] should always
@@ -237,7 +237,7 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
 
       // Create a map of Color palettes for each category. Each Palette uses
       // the max for any category to ensure that the gradients look appropriate.
-      const colorsByCategory: Map<string, Array<Color>> = new Map();
+      const colorsByCategory = new Map<string, Array<Color>>();
       let index = 0;
       [...missingColorCountPerCategory.keys()].forEach((category) => {
         colorsByCategory.set(category, 
@@ -250,7 +250,7 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
 
       seriesList.forEach((series) => {
         if (series.colorFn == null) {
-          const category = series.seriesCategory || defaultCategory;
+          const category = series.seriesCategory ?? defaultCategory;
 
           // Get the current index into the color list.
           const colorIndex = missingColorCountPerCategory.get(category);
@@ -261,12 +261,12 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
         }
 
         // Fill color defaults to the series color if no accessor is provided.
-        series.fillColorFn = series.fillColorFn || ((i: number) => series.colorFn(i));
+        series.fillColorFn = series.fillColorFn ?? ((i: number) => series.colorFn(i));
       });
     } else {
       seriesList.forEach((series) => {
         // Fill color defaults to the series color if no accessor is provided.
-        series.fillColorFn = series.fillColorFn || ((i: number) => series.colorFn(i));
+        series.fillColorFn = series.fillColorFn ?? ((i: number) => series.colorFn(i));
       });
     }
 
@@ -322,8 +322,8 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
     const { rawMeasureLowerBoundFn } = series;
     const { rawMeasureUpperBoundFn } = series;
     const { colorFn } = series;
-    const areaColorFn = series.areaColorFn || colorFn;
-    const fillColorFn = series.fillColorFn || colorFn;
+    const areaColorFn = series.areaColorFn ?? colorFn;
+    const fillColorFn = series.fillColorFn ?? colorFn;
     const { radiusPxFn } = series;
     const { strokeWidthPxFn } = series;
 
@@ -352,7 +352,7 @@ export abstract class BaseSeriesRenderer<D> implements SeriesRenderer<D> {
     // Fill color is an optional override for color. Make sure we get a value if
     // the series doesn't define anything specific.
     let fillColor = fillColorFn(index);
-    fillColor = fillColor || color;
+    fillColor = fillColor ?? color;
 
     // Area color is entirely optional.
     const areaColor = areaColorFn(index);

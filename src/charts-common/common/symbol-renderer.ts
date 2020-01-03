@@ -40,7 +40,7 @@ export abstract class SymbolRenderer extends BaseSymbolRenderer {
   }): void;
 
   getSolidStrokeWidthPx = (strokeWidthPx: number) =>
-    this.isSolid ? strokeWidthPx : strokeWidthPx || 2.0;
+    this.isSolid ? strokeWidthPx : strokeWidthPx ?? 2.0;
 
   getSolidFillColor = (fillColor: Color) =>
     this.isSolid ? fillColor : StyleFactory.style.white;
@@ -76,7 +76,7 @@ export class RoundedRectSymbolRenderer extends SymbolRenderer {
     radius?: number,
   } = {}) {
     super({ isSolid });
-    this.radius = radius || 1.0;
+    this.radius = radius ?? 1.0;
   }
 
   paint = (canvas: ChartCanvas, bounds: Rectangle, {
@@ -133,7 +133,7 @@ export class LineSymbolRenderer extends SymbolRenderer {
     strokeWidth?: number,
   } = {}) {
     super({ isSolid });
-    this.strokeWidth = strokeWidth || LineSymbolRenderer.strokeWidthForRoundEndCaps;
+    this.strokeWidth = strokeWidth ?? LineSymbolRenderer.strokeWidthForRoundEndCaps;
     this._dashPattern = dashPattern;
   }
 
@@ -153,13 +153,13 @@ export class LineSymbolRenderer extends SymbolRenderer {
     // If we have a dash pattern, do not round the end caps, and set
     // strokeWidthPx to a smaller value. Using round end caps makes smaller
     // patterns blurry.
-    const localDashPattern = dashPattern || this._dashPattern;
+    const localDashPattern = dashPattern ?? this._dashPattern;
     const roundEndCaps = localDashPattern == null;
 
     // If we have a dash pattern, the normal stroke width makes them look
     // strangely tall.
     const localStrokeWidthPx = localDashPattern == null
-      ? this.getSolidStrokeWidthPx(strokeWidthPx || this.strokeWidth)
+      ? this.getSolidStrokeWidthPx(strokeWidthPx ?? this.strokeWidth)
       : LineSymbolRenderer.strokeWidthForRoundEndCaps;
 
     // Adjust the length so the total width includes the rounded pixels.

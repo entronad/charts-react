@@ -6,16 +6,16 @@ import { TextStyleSpec } from '../cartesian/axis/spec/axis-spec';
 import { FillPatternType } from './chart-canvas';
 
 export abstract class ImmutableSeries<D> {
-  abstract get id(): String;
+  abstract get id(): string;
 
-  abstract get displayName(): String;
+  abstract get displayName(): string;
 
   // Overlay series provided supplemental information on a chart, but are not
   // considered to be primary data. They should not be selectable by user
   // interaction.
   abstract get overlaySeries(): boolean;
 
-  abstract get seriesCategory(): String;
+  abstract get seriesCategory(): string;
 
   // Color which represents the entire series in legends.
   //
@@ -43,7 +43,7 @@ export abstract class ImmutableSeries<D> {
   //
   // Note: This is currently an optional function that is not fully used by all
   // series renderers yet.
-  abstract keyFn: AccessorFn<String>;
+  abstract keyFn: AccessorFn<string>;
 
   abstract get domainFn(): AccessorFn<D>;
 
@@ -81,7 +81,7 @@ export abstract class ImmutableSeries<D> {
 
   abstract get fillPatternFn(): AccessorFn<FillPatternType>;
 
-  abstract get labelAccessorFn(): AccessorFn<String>;
+  abstract get labelAccessorFn(): AccessorFn<string>;
 
   abstract insideLabelStyleAccessorFn: AccessorFn<TextStyleSpec>;
   abstract outsideLabelStyleAccessorFn: AccessorFn<TextStyleSpec>;
@@ -144,7 +144,7 @@ export class MutableSeries<D> extends ImmutableSeries<D> {
     super();
     this.id = series.id;
 
-    this.displayName = series.displayName || series.id;
+    this.displayName = series.displayName ?? series.id;
     this.overlaySeries = series.overlaySeries;
     this.seriesCategory = series.seriesCategory;
     this.seriesColor = series.seriesColor;
@@ -182,7 +182,7 @@ export class MutableSeries<D> extends ImmutableSeries<D> {
     this.fillColorFn = series.fillColorFn;
     this.fillPatternFn = series.fillPatternFn;
     this.patternColorFn = series.patternColorFn;
-    this.labelAccessorFn = series.labelAccessorFn || ((i) => this.domainFn(i).toString());
+    this.labelAccessorFn = series.labelAccessorFn ?? ((i) => this.domainFn(i).toString());
     this.insideLabelStyleAccessorFn = series.insideLabelStyleAccessorFn;
     this.outsideLabelStyleAccessorFn = series.outsideLabelStyleAccessorFn;
 

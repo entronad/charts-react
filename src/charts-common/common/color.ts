@@ -68,7 +68,7 @@ export class Color {
   };
 
   get darker() {
-    return this._darker || new Color({
+    return this._darker ?? new Color({
       r: Math.round(this.r * Color._darkerPercentOfOrig),
       g: Math.round(this.g * Color._darkerPercentOfOrig),
       b: Math.round(this.b * Color._darkerPercentOfOrig),
@@ -77,7 +77,7 @@ export class Color {
   }
 
   get lighter() {
-    return this._lighter || new Color({
+    return this._lighter ?? new Color({
       r: Math.round(this.r * Color._lighterPercentOfOrig),
       g: Math.round(this.g * Color._lighterPercentOfOrig),
       b: Math.round(this.b * Color._lighterPercentOfOrig),

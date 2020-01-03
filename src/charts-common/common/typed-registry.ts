@@ -1,5 +1,5 @@
 export class TypedRegistry {
-  readonly _registry: Map<TypedKey<any>, any> = new Map();
+  readonly _registry = new Map<TypedKey<any>, any>();
 
   getAttr = <R>(key: TypedKey<R>): R =>
     this._registry.get(key) as R;
