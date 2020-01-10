@@ -1,3 +1,3 @@
-export * from './array';
+export * from './array-util';
 export * from './assert';
 export * from './duration';

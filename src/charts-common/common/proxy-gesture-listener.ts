@@ -1,5 +1,5 @@
 import { Point } from 'package:dart/math';
-import { remove } from 'package:dart/core';
+import { ArrayUtil } from 'package:dart/core';
 
 import { GestureListener } from './gesture-listener';
 
@@ -14,7 +14,7 @@ export class ProxyGestureListener {
   };
 
   remove = (listener: GestureListener) => {
-    remove(this._listeners, listener);
+    ArrayUtil.remove(this._listeners, listener);
     this._activeListeners.length = 0;
   };
 
